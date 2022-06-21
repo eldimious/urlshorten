@@ -54,15 +54,13 @@ The entry point for the applications is the /backend/src/server.js file. It does
 You can use Docker to start the app locally. The Dockerfile and the docker-compose.yml are already provided for you. You have to run the following command:
 
 ```shell
-cd backend/
-docker-compose -f docker-compose.dev.yaml up --build
+cd backend/ && docker-compose -f docker-compose.dev.yaml up --build
 ```
 
 ### Use the npm scripts: ###
 
 ```shell
-cd backend/
-npm run test
+cd backend/ && npm run test
 ```
 for running tests.
 
