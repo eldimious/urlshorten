@@ -1,0 +1,55 @@
+{
+  "name": "urlshorten",
+  "version": "1.0.0",
+  "description": "URL shorten demo",
+  "main": "index.js",
+  "scripts": {
+    "debug": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "tests": "mocha tests --recursive --timeout 15000 --exit",
+    "lint": "eslint --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eldimious/urlshorten.git"
+  },
+  "author": "Dimos Botsaris <botsaris.d@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eldimious/urlshorten/issues"
+  },
+  "homepage": "https://github.com/eldimious/urlshorten#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "express-winston": "^4.2.0",
+    "helmet": "^5.1.0",
+    "moment": "^2.29.3",
+    "nanoid": "3.3.4",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.0",
+    "throw-http-errors": "^4.0.1",
+    "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "sinon": "^14.0.0",
+    "supertest": "^6.2.3"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "7.x"
+  }
+}

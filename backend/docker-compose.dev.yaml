@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+  postgres-db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: urlshorten-db
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: urlshorten-api
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/home/nodejs/src
+    environment:
+      PORT: 8080
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: urlshorten-db
+      POSTGRES_HOST: postgres-db
+      POSTGRES_PORT: 5432
+    depends_on:
+      - postgres-db
+
+volumes:
+  postgres: ~
