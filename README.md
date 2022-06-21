@@ -1,14 +1,14 @@
 # urlshorten
 
 ## Architecture Overview
-The app is designed to use a layered architecture. The architecture is heavily influenced by the Clean Architecture.[Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is an architecture where:
+The app is designed to use a layered architecture. The architecture is heavily influenced by the Clean Architecture. [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is an architecture where:
 
   1. **does not depend on the existence of some framework, database, external agency.**
   2. **does not depend on UI**
   3. **the business rules can be tested without the UI, database, web server, or any external element.** 
 
 <p align="center">
-  <img src="https://cdn-images-1.medium.com/max/719/1*ZNT5apOxDzGrTKUJQAIcvg.png" width="350"/>
+  <img src="https://miro.medium.com/max/1400/1*0u-ekVHFu7Om7Z-VTwFHvg.png" width="350"/>
   <img src="https://cdn-images-1.medium.com/max/900/0*R7uuhFwZbhcqZSvn" width="350" /> 
 </p>
 
@@ -71,4 +71,4 @@ for running tests.
 
 The project is pushed on Heroku. You can use the following URL to make requests to deployed container: https://url-shorten-demo.herokuapp.com
 
-In /devops/aws foldes, I have included Terraform files to deploy images to ECS Fargate and expose a public face ALB to use it to make requests.
+In /devops/aws folders, I have included Terraform files to deploy images project into ECS Fargate and expose a public face ALB to make requests.
