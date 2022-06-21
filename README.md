@@ -60,7 +60,7 @@ cd backend/ && docker-compose -f docker-compose.dev.yaml up --build
 ### Use the npm scripts: ###
 
 ```shell
-cd backend/ && npm run test
+cd backend/ && npm run tests
 ```
 for running tests.
 
