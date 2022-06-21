@@ -15,20 +15,29 @@ const getTransports = () => {
 
 const getFormat = () => winston.format.combine(
   winston.format.colorize(),
-  winston.format.json(),
+  winston.format.simple(),
 );
 
 const requestLogger = expressWinston.logger({
   transports: getTransports(),
   format: getFormat(),
-  colorize: true,
-  expressFormat: true,
   meta: true,
+  msg: 'HTTP {{req.method}} {{req.url}}',
+  expressFormat: true,
+  colorize: true,
+  ignoreRoute() { return false; },
+  skip(req, res) {
+    return res.statusCode >= 400;
+  },
 });
 
 const errorLogger = expressWinston.errorLogger({
   transports: getTransports(),
   format: getFormat(),
+  meta: true,
+  msg: 'HTTP {{req.method}} {{req.url}}',
+  expressFormat: true,
+  colorize: true,
 });
 
 const logger = winston.createLogger({
@@ -38,8 +47,8 @@ const logger = winston.createLogger({
 });
 
 module.exports = {
-  requestLogger,
-  errorLogger,
+  requestLogger: requestLogger.bind(logger),
+  errorLogger: errorLogger.bind(logger),
   raw: logger,
   error: logger.error.bind(logger),
   warn: logger.warn.bind(logger),
