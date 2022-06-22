@@ -63,10 +63,3 @@ cd backend/ && docker-compose -f docker-compose.dev.yaml up --build
 cd backend/ && npm run tests
 ```
 for running tests.
-
-
-### Deployment
-
-The project is pushed on Heroku. You can use the following URL to make requests to deployed container: https://url-shorten-demo.herokuapp.com
-
-In /devops/aws folders, I have included Terraform files to deploy images project into ECS Fargate and expose a public face ALB to make requests.
